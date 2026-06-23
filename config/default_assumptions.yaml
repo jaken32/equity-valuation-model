@@ -1,0 +1,38 @@
+# Default valuation assumptions.
+#
+# Every field is optional. Ratio fields left unset (or null) are derived from
+# the company's most recent reported year, so the projection starts from its
+# actual operating profile. Override any field with a single value (held flat)
+# or a list of length `forecast_years` (one value per projected year).
+
+forecast_years: 5
+
+# --- Operating drivers ---
+revenue_growth: [0.08, 0.07, 0.06, 0.05, 0.04]   # tapering growth
+gross_margin: null            # null => base-year gross margin
+sga_pct_revenue: null         # null => base-year SG&A / revenue
+da_pct_revenue: null          # null => base-year D&A / revenue
+capex_pct_revenue: null       # null => base-year capex / revenue
+tax_rate: null                # null => base-year effective rate (capped 0-45%)
+
+# --- Working capital (days; null => derive from base year) ---
+days_sales_outstanding: null
+days_inventory_outstanding: null
+days_payable_outstanding: null
+
+# --- Capital structure / financing ---
+cost_of_debt: null            # null => interest expense / total debt
+annual_debt_repayment: 0.0    # millions repaid per year
+dividend_payout_ratio: 0.0    # share of positive net income paid out
+
+# --- DCF parameters ---
+risk_free_rate: 0.043
+equity_risk_premium: 0.055
+beta_override: null           # null => provider beta
+terminal_growth: 0.025
+exit_ev_ebitda: null          # set a multiple to use exit-multiple terminal value
+mid_year_convention: true
+
+# --- Sensitivity grid (offsets applied to base WACC and base terminal g) ---
+wacc_sensitivity: [-0.01, -0.005, 0.0, 0.005, 0.01]
+growth_sensitivity: [-0.01, -0.005, 0.0, 0.005, 0.01]
