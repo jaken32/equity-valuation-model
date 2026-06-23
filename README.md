@@ -1,5 +1,5 @@
 # Equity Valuation Model
-![tests](https://github.com/jaken32/equity-valuation-model/actions/workflows/tests.yml/badge.svg)
+![tests](https://github.com/jaken32/equity-valuation-model/actions/workflows/main.yml/badge.svg)
 A command-line tool and Python library that takes a stock ticker, builds a
 linked three-statement projection, and runs a discounted cash-flow (DCF)
 valuation with a WACC × terminal-growth sensitivity table. Output is rendered to
